@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gson.hejinzhao.model.mapper.ShipMapper">
+
+    <!-- 查询所有的关系列表 -->
+    <select id="findAllShip" resultType="cn.gson.hejinzhao.model.pojos.Ship">
+        select * from ship
+    </select>
+
+    <insert id="addRegistration">
+        insert into registration values (0,#{strationName},#{strationSex},#{strationAge},#{strationCoding},#{strationUnits},#{strationPhone},#{strationAddress},#{strationDate},#{strationDiagnosis},#{strationHospital},#{strationAfter},#{strationPresenters},#{strationShip},#{strationPreparer},#{strationPatients})
+    </insert>
+
+    <select id="findAllRegistration" resultType="cn.gson.hejinzhao.model.pojos.Registration">
+        select * from registration
+        <where>
+            <if test="search !=null and ''!=search">
+                stration_name like '%${search}%'
+            </if>
+        </where>
+    </select>
+</mapper>
