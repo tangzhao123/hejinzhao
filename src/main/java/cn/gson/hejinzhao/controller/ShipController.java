@@ -27,6 +27,7 @@ public class ShipController {
     //新增入院记录
     @RequestMapping("add-ship")
     public String addRegistration(@RequestBody Registration registration){
+        System.err.println(1111);
         System.err.println(registration);
         try {
             shipService.addRegistration(registration);
